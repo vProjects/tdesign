@@ -1,0 +1,99 @@
+.design-options-container {
+	width: 666px;
+	margin: 0 auto;
+}
+.design-option {
+	width: 200px;
+	float: left;
+	padding: 10px;
+	text-align: center;
+	margin-right: 2px;
+	transition: all 0.5s ease 0s;
+	font-family: 'PT Sans Caption', sans-serif;
+}
+.design-option:hover {
+	box-shadow: 10px 10px 142px #ffa600 inset;
+	transition: all 1s ease 0s;
+}
+.design-option img {
+	background: white;
+}
+.design-option-submit input[type="submit"] {
+	width: 200px;
+	height: 30px;
+	margin-top: 10px;
+	background-color: #ffa600;
+	border: none;
+	float: right;
+	cursor: pointer;
+}
+.design-canvas-area {
+	width: 900px;
+	height: 600px;
+	background: url('../images/bg.png');
+	margin: 0 auto;
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+}
+.design-menu {
+	width: 860px;
+	height: 50px;
+	padding-right: 20px;
+	padding-left: 20px;
+	background-color: #fafafa;
+	background-image: -moz-linear-gradient(top,#fff,#f2f2f2);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#f2f2f2));
+	background-image: -webkit-linear-gradient(top,#fff,#f2f2f2);
+	background-image: -o-linear-gradient(top,#fff,#f2f2f2);
+	background-image: linear-gradient(to bottom,#fff,#f2f2f2);
+	background-repeat: repeat-x;
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#fff2f2f2',GradientType=0);
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+
+}
+.design-brand {
+	font-Family: 'PT Sans Caption';
+	font-size: 21px;
+	text-shadow: 0 1px 0 #fff;
+	margin-top: 11px;
+	float: left;
+}
+.design-devider {
+    height: 40px;  margin: 0 9px;  border-right: 1px solid #fff;  
+    border-left: 1px solid #f2f2f9;
+	
+    width: 1px;
+    float: left;
+    margin-top: 4px;
+}
+.design-area {
+	margin-top: 20px;
+}
+.design-configure {
+	width: 300px;
+	padding: 10px;
+	height: auto;
+	background-color: red;
+	float: left;
+}
+.design-canvas-configure {
+	width: 580px;
+	height: 400px;
+	float: left;
+}
+#t-drav {
+	width: 380px;
+	height: 400px;
+	border: 1px solid black;
+}
