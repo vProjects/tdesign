@@ -10,11 +10,12 @@
 			var rect = new fabric.Rect({
 			  left: 100,
 			  top: 100,
-			  fill: 'red',
-			  width: 500,
-			  height: 50
+			  fill: 'aliceblue',
+			  width: 400,
+			  height: 400
 			});
 			
+			//here we initialize the text to stay on the page and we add that to the canavas
 			var userText = new fabric.Text('',{
 							left: 100,
 							top: 100,
@@ -89,6 +90,40 @@
 				}
 
 			
+			});
+			
+			
+			//adding an image to the canvas
+			$('.design-picture').click(function(){
+				
+				
+				console.log(canvas.getObjects().length); 
+				//the image src which will generate the image
+				var selectedImage = $(this).children().attr('src');
+				var toggle = 1;
+				
+				fabric.Image.fromURL(selectedImage,
+											 function(oImg) {
+											 	
+											 	
+											 	if(toggle == 1 ){
+											 		var myImage = oImg;
+											 		toggle =2;
+											 		console.log('me in toggle one');
+											 	}
+											 	else if(toggle ==2){
+											 		var myImage2 = oImg;
+											 		toggle =1;
+											 		console.log('me in toggle two');
+											 	}
+											 	
+				 	canvas.add(oImg);
+				 	if(canvas.getObjects().length > 2){
+				 			console.log(canvas.getObjects());
+				 			console.log(' myImage');
+							canvas.remove(myImage[canvas.getObjects().length -1]);
+						}
+				});
 			});
 
 		 });
