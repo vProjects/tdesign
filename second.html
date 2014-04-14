@@ -19,42 +19,88 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-	</head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/fabric.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		
+		 $(document).ready(function() 
+		 {
+		    			var canvas = new fabric.Canvas('t-drav');
+			
+			// create a rectangle object
+			var rect = new fabric.Rect({
+			  left: 100,
+			  top: 100,
+			  fill: 'red',
+			  width: 50,
+			  height: 50
+			});
+			
+			var text40 = new fabric.Text("I'm at fontSize 40", {
+			  left: 100,
+			  top: 100,
+			  fontSize: 40,
+			  fontStyle: 'italic',
+			  fontFamily: 'PT Sans Caption'
+			});
+			var text20 = new fabric.Text("I'm at fontSize 20", {
+			  fontSize: 20
+			});
+			
+			// "add" rectangle onto canvas
+			canvas.add(rect);
+			canvas.add(text40);
+			canvas.add(text20);
+			rect.set('selectable', false); 
 
+		 });
+			// create a wrapper around native canvas element (with id="c")
+		</script>
+		
+	</head>
+	
 	<body>
-		<div class="design-area-selection">
-			<h3>Where do you want to place your logo</h3>
-			<div class="design-area-box">
-				<img src="images/front.png" alt="front"/>
-				<label>Front</label>
-				<input type="radio" value="front" name="placeselection"/>
+		<div class="design-canvas-area">
+			<div class="design-menu">
+				<div class="design-brand">BuyWork Wear</div>
+				<div class="design-devider"></div>
 			</div>
-			<div class="design-area-box">
-				<img src="images/back.png" alt="front"/>
-				<label>Back</label>
-				<input type="radio" value="back" name="placeselection"/>
-			</div>
-			<div class="design-area-box">
-				<img src="images/rightchest.png" alt="front"/>
-				<label>Right Chest</label>
-				<input type="radio" value="rightchest" name="placeselection"/>
-			</div>
-			<div class="design-area-box">
-				<img src="images/leftchest.png" alt="front"/>
-				<label>Left Chest</label>
-				<input type="radio" value="leftchest" name="placeselection"/>
-			</div>
-			<div class="design-area-box">
-				<img src="images/rightsleeve.png" alt="front"/>
-				<label>Right Sleeve</label>
-				<input type="radio" value="rightsleeve" name="placeselection"/>
-			</div>
-			<div class="design-area-box">
-				<img src="images/leftsleeve.png" alt="front"/>
-				<label>Front</label>
-				<input type="radio" value="leftsleeve" name="placeselection"/>
-			</div>
-			<div class="clear" style="clear:both"></div>
+			
+			<div class="design-area-selection">
+				<h3>Where do you want to place your Text or Logo</h3>
+				<div class="design-area-box">
+					<a href="designer.html"><img src="images/front.png" alt="front"/></a>
+					<label>Front</label>
+				</div>
+				<div class="design-area-box">
+					<a href="designer.html"><img src="images/back.png" alt="front"/></a>
+					<label>Back</label>
+				</div>
+				<div class="design-area-box">
+					<a href="designer.html"><img src="images/rightchest.png" alt="front"/></a>
+					<label>Right Chest</label>
+				</div>
+				<div class="design-area-box">
+					<a href="designer.html"><img src="images/leftchest.png" alt="front"/></a>
+					<label>Left Chest</label>
+				</div>
+				<div class="design-area-box">
+					<a href="designer.html"><img src="images/rightsleeve.png" alt="front"/></a>
+					<label>Right Sleeve</label>
+				</div>
+				<div class="design-area-box">
+					<a href="designer.html"><img src="images/leftsleeve.png" alt="front"/></a>
+					<label>Front</label>
+				</div>
+				<div class="design-area-box">
+					<a href="designer.html"><img src="images/neckside.png" alt="front"/></a>
+					<label>Neck Side</label>
+				</div>
+				
+				<div class="clear" style="clear:both"></div>
 		</div>
+
+		</div>
+		
 	</body>
 </html>
