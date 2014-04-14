@@ -27,6 +27,19 @@
 	float: right;
 	cursor: pointer;
 }
+/* second page css */
+.design-area-selection {
+	width: 900px;
+	height: auto;
+	margin: 0 auto;
+}
+.design-area-box {
+	width: 300px;
+	float: left;
+	height: 350px;
+	text-align: center;
+	font-family: 'PT Sans Caption';
+}
 .design-canvas-area {
 	width: 900px;
 	height: 600px;
@@ -63,7 +76,7 @@
 
 }
 .design-brand {
-	font-Family: 'PT Sans Caption';
+	font-family: 'PT Sans Caption';
 	font-size: 21px;
 	text-shadow: 0 1px 0 #fff;
 	margin-top: 11px;
@@ -84,13 +97,71 @@
 	width: 300px;
 	padding: 10px;
 	height: auto;
-	background-color: red;
 	float: left;
+}
+.design-configure ul {
+	padding: 0px;
+	font-family: 'PT Sans Caption';
+}
+.design-configure ul li {
+	list-style-type: none;
+	width: 150px;
+	background: #5cb85c;
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 5px
+}
+.design-configure ul li a{
+	text-decoration: none;
+	color: #fff;
 }
 .design-canvas-configure {
 	width: 580px;
 	height: 400px;
 	float: left;
+}
+.design-text-elements input[type="text"] {
+	display: inline-block;
+	width: 150px;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.design-text-elements input[type="button"] {
+	color: #fff;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.design-text-color {
+    height: 20px;
+    width: 20px;
 }
 #t-drav {
 	width: 380px;
