@@ -1,0 +1,27 @@
+<form id="myform" action="/parse" method="post" enctype="multipart/form-data">
+Name: <input type="text" name="name" id="name" placeholder="Enter your name">
+Age: <input type="number" name="age" id="age" placeholder="Enter your age">
+Photo: <input type="file" name="image" id="image">
+<input type="submit">
+</form>
+<div id="preview"></div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+	$('#image').change(function() {
+    var file = $(this).get(0).files[0];
+    //var preview = $('#preview');
+    var img = document.createElement('img');
+    img.src = window.URL.createObjectURL(file);
+    $('#preview').html(img);
+    var reader = new FileReader();
+    reader.onload = function(e) {
+     	window.URL.revokeObjectURL(this.src);
+    }
+    //reader.readAsDataURL(file);
+    $('#preview img').css({'width':'200px'});
+    
+    var data = new FormData($('#myform')[0]);
+	//console.log(data);
+});
+
+</script>
