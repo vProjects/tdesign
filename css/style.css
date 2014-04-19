@@ -3,13 +3,14 @@
 	margin: 0 auto;
 }
 .design-option {
-	width: 200px;
+	width: 309px;
 	float: left;
 	padding: 10px;
 	text-align: center;
 	margin-right: 2px;
 	transition: all 0.5s ease 0s;
 	font-family: 'PT Sans Caption', sans-serif;
+	border: 1px solid #a8a8a8;
 }
 .design-option:hover {
 	box-shadow: 10px 10px 142px #ffa600 inset;
@@ -63,7 +64,7 @@
 }
 .design-canvas-area {
 	width: 900px;
-	height: 600px;
+	height: 716px;
 	background: url('../images/bg.png');
 	margin: 0 auto;
 	border: 1px solid #d4d4d4;

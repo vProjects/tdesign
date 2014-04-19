@@ -10,7 +10,7 @@
 			var rect = new fabric.Rect({
 			  left: 100,
 			  top: 100,
-			  fill: 'aliceblue',
+			  fill: 'red',
 			  width: 400,
 			  height: 400
 			});
