@@ -22,22 +22,6 @@
 							fontSize: 20,
 							fontFamily: 'Comic Sans'
 						});
-						
-			//second line initialization 
-			var userText1 = new fabric.Text('',{
-							left: 100,
-							top: 130,
-							fontSize: 20,
-							fontFamily: 'Comic Sans'
-						});
-			
-			//Third line initialization 
-			var userText2 = new fabric.Text('',{
-							left: 100,
-							top: 160,
-							fontSize: 20,
-							fontFamily: 'Comic Sans'
-						});
 			
 			
 			
