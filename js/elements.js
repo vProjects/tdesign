@@ -9,10 +9,10 @@
 			// create a rectangle object
 			var rect = new fabric.Rect({
 			  left: 100,
-			  top: 100,
+			  top: 50,
 			  fill: 'red',
-			  width: 400,
-			  height: 400
+			  width: 350,
+			  height: 300
 			});
 			
 			//here we initialize the text to stay on the page and we add that to the canavas
@@ -32,8 +32,67 @@
 			
 			//global variables
 			var designButtonClick = 0;
+			// variable through userText will be accessed
+			var i = 0;
+
 			
+			$('#design-print-text').change(function(){
+				
+				//maximum no. of lines a user can add
+				var userText = new Array();
+				
+				if(canvas.getObjects().length < 4){
+					var designText = $('#design-print-text').val().trim();
+					
+					switch (i){
+						case 0:
+								userText[i] = new fabric.Text(designText,{
+													left: 100,
+													top: 100,
+													fontSize: 40,
+													fontFamily: 'Comic Sans'
+												});
+								
+													
+								canvas.add(userText[i]);
+								i++;
+								break;
+						case 1:
+								userText[i] = new fabric.Text(designText,{
+													left: 100,
+													top: 150,
+													fontSize: 40,
+													fontFamily: 'Comic Sans'
+												});
+								
+													
+								canvas.add(userText[i]);
+								i++;
+								break;
+						case 2:
+								userText[i] = new fabric.Text(designText,{
+													left: 100,
+													top: 200,
+													fontSize: 40,
+													fontFamily: 'Comic Sans'
+												});
+								
+													
+								canvas.add(userText[i]);
+								i++;
+								break;
+					}
+					
+					console.log(i);
+				}
+				else {
+					alert('You can add only three lines');
+				}
+				
+				
+			});
 			
+/*
 			$('#design-print-text-add').click(function(){
 				var designText = $('#design-print-text').val().trim();
 				if(designButtonClick == 0){
@@ -61,6 +120,7 @@
 				
 								
 			});
+*/
 			
 			
 			//font selection using the font boxes

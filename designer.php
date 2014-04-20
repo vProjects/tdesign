@@ -39,7 +39,6 @@
 					</ul>
 					<div class="design-text-elements">
 						<input type="text" id="design-print-text" placeholder="Please Enter text" />
-						<input type="button" id="design-print-text-add" value="submit"/>
 						<div class="design-color-palette-holder">
 							<h5>Text Color</h5>
 							<div class="design-color-palette" data-color="000000" style="background: rgb(0,0,0);"></div>
@@ -79,6 +78,11 @@
 				</div>
 				<div class="design-canvas-configure">
 					<canvas id="t-drav" width="550" height="400"></canvas>
+					<div class="design-nav-buttons">
+						<button type="button" class="btn design-addtocart">Add to Cart</button>
+						<button type="button" class="btn design-addposition">Add to Different Postion</button>
+						<button type="button" class="btn total-price">Total Price</button>
+					</div>
 				</div>
 			</div>
 			<div class="clear" style="clear:both"></div>
