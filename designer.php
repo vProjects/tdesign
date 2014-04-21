@@ -34,8 +34,8 @@
 			<div class="design-area">
 				<div class="design-configure">
 					<ul class="nav nav-pills nav-stacked">
-					  <li class="active"><a href="designer.html"><i class="fa fa-font fa-fw"></i> Add Text</a></li>
-					  <li><a href="designer2.html"><i class="fa fa-plus-square fa-fw"></i> Add Logo</a></li>
+					  <li class="active"><a href="designer.php"><i class="fa fa-font fa-fw"></i> Add Text</a></li>
+					  <li><a href="designer2.php"><i class="fa fa-plus-square fa-fw"></i> Add Logo</a></li>
 					</ul>
 					<div class="design-text-elements">
 						<input type="text" id="design-print-text" placeholder="Please Enter text" />
@@ -82,6 +82,7 @@
 						<button type="button" class="btn design-addtocart">Add to Cart</button>
 						<button type="button" class="btn design-addposition">Add to Different Postion</button>
 						<button type="button" class="btn total-price">Total Price</button>
+						<button type="button" class="btn remove-text">Remove Text</button>
 					</div>
 				</div>
 			</div>

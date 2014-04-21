@@ -69,7 +69,11 @@
 	border-color: #357ebd;
 	
 }
-
+.remove-text {
+	color: #fff;
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
 /* second page css */
 .design-area-selection {
 	width: 875px;

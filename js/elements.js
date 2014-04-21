@@ -44,6 +44,12 @@
 				if(canvas.getObjects().length < 4){
 					var designText = $('#design-print-text').val().trim();
 					
+					if(designText.length > 12){
+						alert('this is more than 12');
+					}
+					
+
+					
 					switch (i){
 						case 0:
 								userText[i] = new fabric.Text(designText,{
@@ -81,6 +87,22 @@
 								canvas.add(userText[i]);
 								i++;
 								break;
+						default:
+								if(canvas.getObjects().length < 4){
+										userText[i] = new fabric.Text(designText,{
+															left: 0,
+															top: 0,
+															fontSize: 40,
+															fontFamily: 'Comic Sans'
+														});
+										
+															
+										canvas.add(userText[i]);
+										i++;
+										break;									
+								}
+								
+						
 					}
 					
 					console.log(i);
@@ -92,64 +114,60 @@
 				
 			});
 			
-/*
-			$('#design-print-text-add').click(function(){
-				var designText = $('#design-print-text').val().trim();
-				if(designButtonClick == 0){
-					if(designText == ""){
-						
-						alert('please enter the text');
-						
-					}
-					else {
-						userText.setText(designText);
-						canvas.add(userText);
-					}
-				designButtonClick++;	
-				}//designButtonClick first time ends here
-				
-				else if(designButtonClick > 0){
-					if(designText == ""){
-						alert('please enter the text');
-					}
-					else {
-						userText.setText(designText);
-						canvas.add(userText);
-					}
-				}
-				
-								
-			});
-*/
 			
 			
 			//font selection using the font boxes
 			$('.fonts').click(function(){
-				var userTextValue = userText.getText();
-				if(userTextValue == ''){
-					alert('Please enter a text which you want to customize');
+								
+				//variable that says which elements is an active element
+				var activeElement = canvas.getActiveObject();
+				
+				//fonts selected by the users
+				var fontSelection = $(this).html();
+				
+
+				if(activeElement) {
+					
+					activeElement.setFontFamily(fontSelection);
+					canvas.add(activeElement);
+					
 				}
 				else {
-					userText.setFontFamily($(this).html());
-					canvas.add(userText);
+					alert('Please select the text that you want to customize');
 				}
+
+				
+
 			});
 			
 			
 			//Adding color to the text
 			$('.design-color-palette').click(function(){
+				
+				//variable that says which elements is an active element
+				var activeElement = canvas.getActiveObject();
+				
 				console.log($(this).data('color'));
-				var userTextValue = userText.getText();
-				if(userTextValue == ''){
-					alert('Please enter a text which you want to customize');
+
+				if(activeElement) {
+					
+					activeElement.setColor($(this).data('color'));
+					canvas.add(activeElement);
+					
 				}
 				else {
-					var userTextColor = $(this).data('color');
-					userText.setColor($(this).data('color'));
-					canvas.add(userText);
+					alert('Please select the text that you want to customize');
 				}
-
 			
+			});
+			
+			
+			//removing text from the canvas 
+			$('.remove-text').click(function(){
+				
+				//variable that says which elements is an active element
+				var activeElement = canvas.getActiveObject();
+				canvas.remove(activeElement);
 			});
 			
 			
@@ -169,6 +187,7 @@
 											 	if(toggle == 1 ){
 											 		var myImage = oImg;
 											 		toggle =2;
+											 		oImg.width(200);
 											 		console.log('me in toggle one');
 											 	}
 											 	else if(toggle ==2){
