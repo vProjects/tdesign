@@ -36,74 +36,57 @@
 			var i = 0;
 
 			
-			$('#design-print-text').change(function(){
+			$('.design-print-text').change(function(){
 				
+				var designText = $(this).val().trim();
 				//maximum no. of lines a user can add
 				var userText = new Array();
 				
 				if(canvas.getObjects().length < 4){
-					var designText = $('#design-print-text').val().trim();
-					
-
-					
-					switch (i){
-						case 0:
-								userText[i] = new fabric.Text(designText,{
-													left: 100,
-													top: 100,
-													fontSize: 40,
-													fontFamily: 'Comic Sans'
-												});
-								
-													
-								canvas.add(userText[i]);
-								i++;
-								break;
-						case 1:
-								userText[i] = new fabric.Text(designText,{
-													left: 100,
-													top: 150,
-													fontSize: 40,
-													fontFamily: 'Comic Sans'
-												});
-								
-													
-								canvas.add(userText[i]);
-								i++;
-								break;
-						case 2:
-								userText[i] = new fabric.Text(designText,{
-													left: 100,
-													top: 200,
-													fontSize: 40,
-													fontFamily: 'Comic Sans'
-												});
-								
-													
-								canvas.add(userText[i]);
-								i++;
-								break;
-						default:
-								if(canvas.getObjects().length < 4){
-										userText[i] = new fabric.Text(designText,{
-															left: 0,
-															top: 0,
-															fontSize: 40,
-															fontFamily: 'Comic Sans'
-														});
-										
-															
-										canvas.add(userText[i]);
-										i++;
-										break;									
-								}
-								
-						
+					if($(this).index() == 0){
+						userText[$(this).index()] = new fabric.Text(designText,{
+											left: 100,
+											top: 100,
+											fontSize: 40,
+											fontFamily: 'Comic Sans'
+										});
 					}
 					
-					console.log(i);
+					if($(this).index() == 1){
+						userText[$(this).index()] = new fabric.Text(designText,{
+											left: 100,
+											top: 150,
+											fontSize: 40,
+											fontFamily: 'Comic Sans'
+										});
+					}
+					
+					if($(this).index() == 2){
+						userText[$(this).index()] = new fabric.Text(designText,{
+											left: 100,
+											top: 200,
+											fontSize: 40,
+											fontFamily: 'Comic Sans'
+										});
+					}
+					
+						
+						console.log('added');
+										
+						canvas.add(userText[$(this).index()]);
+						
+						
+						console.log(userText[$(this).index()]);
+						console.log(userText[$(this).index()].width);
+						i++;
+						if(i==4){
+							i = 0;
+						}
+				
 				}
-				else {
+					
+					
+			else {
 					alert('You can add only three lines');
 				}
 				
@@ -163,8 +146,48 @@
 				
 				//variable that says which elements is an active element
 				var activeElement = canvas.getActiveObject();
-				canvas.remove(activeElement);
+				if(activeElement){
+					canvas.remove(activeElement);
+				}
+				else {
+					alert('Please select any element to remove from the design');
+				}
 			});
+			
+			
+			//changes font-size
+			$('.design-font-size-holder').change(function(){
+				var fontSize = $('.design-font-size-selectbox').val();
+				var activeElement = canvas.getActiveObject();
+				
+				if(activeElement){
+					activeElement.setFontSize(fontSize);
+					canvas.add(activeElement);
+				}
+				else {
+					alert('Please select the element in the design');
+				}
+			});
+			
+			
+			//changes font-property
+			$('.design-font-type').click(function(){
+				var fontStyle = $(this).val();
+				var activeElement = canvas.getActiveObject();
+				
+				if(activeElement){
+					activeElement.setFontStyle(fontStyle);
+					canvas.add(activeElement);
+				}
+				else {
+					alert('Please select the element in the design');
+				}
+				
+			});	
+			
+			
+			
+			
 			
 			
 			//adding an image to the canvas

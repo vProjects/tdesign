@@ -34,11 +34,12 @@
 			<div class="design-area">
 				<div class="design-configure">
 					<ul class="nav nav-pills nav-stacked">
-					  <li class="active"><a href="designer.php"><i class="fa fa-font fa-fw"></i> Add Text</a></li>
-					  <li><a href="designer2.php"><i class="fa fa-plus-square fa-fw"></i> Add Logo</a></li>
 					</ul>
 					<div class="design-text-elements">
-						<input type="text" id="design-print-text" placeholder="Please Enter text" />
+						<input type="text" class="design-print-text" placeholder="Please Enter First Line" />
+						<input type="text" class="design-print-text" placeholder="Please Enter Second Line" />
+						<input type="text" class="design-print-text" placeholder="Please Enter Third Line" />
+						
 						<div class="design-color-palette-holder">
 							<h5>Text Color</h5>
 							<div class="design-color-palette" data-color="000000" style="background: rgb(0,0,0);"></div>
@@ -53,6 +54,23 @@
 							<div class="design-color-palette" data-color="6699CC" style="background: #6699CC;"></div>
 							<div class="design-color-palette" data-color="9900CC" style="background: #9900CC;"></div>
 							<div class="clear" style="clear:both"></div>
+						</div>
+						<div class="design-font-size-holder">
+							<select class="design-font-size-selectbox">
+							
+								<option value="1">1 px</option>
+								<option value="2">2 px</option>
+								<option value="3">3 px</option>
+								<option value="20">20 px</option>
+								<option value="60">60 px</option>
+								<option value="10">10 px</option>
+								<option value="50">50 px</option>
+							</select>
+						</div>
+						<div class="design-font-type-holder">
+							<button type="button" class="btn design-font-type" value="bold"><b>Bold</b></button>
+							<button type="button" class="btn design-font-type" value="italic"><i>Italic</i></button>
+							
 						</div>
 
 						<div class="design-font-family-holder">

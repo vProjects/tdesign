@@ -74,6 +74,9 @@
 	background-color: #d9534f;
 	border-color: #d43f3a;
 }
+.design-print-text {
+	margin-bottom: 10px;
+}
 /* second page css */
 .design-area-selection {
 	width: 875px;
@@ -235,7 +238,7 @@
     width: 20px;
 }
 .design-color-palette-holder {
-	width: 194px;
+	width: 170px;
     padding: 5px;
     margin-top: 10px;
 }
