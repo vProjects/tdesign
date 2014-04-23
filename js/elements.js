@@ -44,10 +44,6 @@
 				if(canvas.getObjects().length < 4){
 					var designText = $('#design-print-text').val().trim();
 					
-					if(designText.length > 12){
-						alert('this is more than 12');
-					}
-					
 
 					
 					switch (i){
@@ -187,7 +183,6 @@
 											 	if(toggle == 1 ){
 											 		var myImage = oImg;
 											 		toggle =2;
-											 		oImg.width(200);
 											 		console.log('me in toggle one');
 											 	}
 											 	else if(toggle ==2){
