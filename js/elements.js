@@ -105,7 +105,8 @@
 				if(activeElement) {
 					
 					activeElement.setFontFamily(fontSelection);
-					canvas.add(activeElement);
+					//canvas.add(activeElement);
+					canvas.renderAll();
 					
 				}
 				else {
@@ -126,7 +127,8 @@
 				if(activeElement) {
 					
 					activeElement.setColor($(this).data('color'));
-					canvas.add(activeElement);
+					//canvas.add(activeElement);
+					canvas.renderAll();
 					
 				}
 				else {
@@ -143,6 +145,7 @@
 				var activeElement = canvas.getActiveObject();
 				if(activeElement){
 					canvas.remove(activeElement);
+					canvas.renderAll();
 				}
 				else {
 					alert('Please select any element to remove from the design');
@@ -157,7 +160,8 @@
 				
 				if(activeElement){
 					activeElement.setFontSize(fontSize);
-					canvas.add(activeElement);
+					//canvas.add(activeElement);
+					canvas.renderAll();
 				}
 				else {
 					alert('Please select the element in the design');
@@ -172,7 +176,8 @@
 				
 				if(activeElement){
 					activeElement.setFontStyle(fontStyle);
-					canvas.add(activeElement);
+					//canvas.add(activeElement);
+					canvas.renderAll();
 				}
 				else {
 					alert('Please select the element in the design');
@@ -232,8 +237,50 @@
 				//getting the values of the canvas for the site owner
 				$('.design-addtocart').click(function(){
 					//console.log(JSON.stringify(canvas));
+					canvas.renderAll();
 					console.log(canvas.toSVG());
 				});
+				
+				
+				//getting clicked on select other position
+			     $('.design-addposition').click(function(){
+			     
+			   
+			      if( canvas.getObjects().length < 2 )
+			       {
+			        alert("Please select one image.");
+			       }
+			       else
+			       {
+			        //here modiFiedUrl is the url defined in the addLogo.phtml so that we can use a php url here in javascript
+			        var a = canvas.getObjects();
+			        var xmlData = canvas.toSVG();
+			        
+			         $.ajax({
+				            type: "POST",
+				            url:"please specify url here",
+				            data: xmlData,
+				            beforeSend:function(){
+				                // this is where we append a loading image
+				                $('').html('');
+				              },
+				            success:function(result){
+				                
+								console.log(result);
+				                $("").html('');
+				                return false;
+			            }});
+			        
+			        
+			        	var url = canvas.item(1).getSrc();
+			        	
+			        	
+			        	var temp = url.indexOf("temp");
+			        	
+			        	
+			        	var ImageName = url.substr(temp+5);    
+			       }
+			     });
 				
 
 	});
