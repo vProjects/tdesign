@@ -189,36 +189,45 @@
 			
 			
 			
-			
+			//variable to manage only one logo in the canavas
+			var toggle = 1;
+			var myImage = new Array();
 			//adding an image to the canvas
-			$('#holder').click(function(){
+			$(document).on( "click", "'#holder img'", function(){
 				
 				
 				console.log(canvas.getObjects().length); 
 				//the image src which will generate the image
 				var selectedImage = $(this).children().attr('src');
-				var toggle = 1;
+				console.log(selectedImage);
+				
+				
+
+				
 				
 				fabric.Image.fromURL(selectedImage,
 											 function(oImg) {
 											 	
 											 	
 											 	if(toggle == 1 ){
-											 		var myImage = oImg;
+											 		myImage[toggle] = oImg;
+											 		console.log(myImage[toggle]);
 											 		toggle =2;
+											 		oImg.scaleToWidth(200);
 											 		console.log('me in toggle one');
 											 	}
 											 	else if(toggle ==2){
-											 		var myImage2 = oImg;
+											 		myImage[toggle] = oImg;
 											 		toggle =1;
+											 		oImg.scaleToWidth(200);
 											 		console.log('me in toggle two');
 											 	}
 											 	
 				 	canvas.add(oImg);
 				 	if(canvas.getObjects().length > 2){
-				 			console.log(canvas.getObjects());
-				 			console.log(' myImage');
-							canvas.remove(myImage[canvas.getObjects().length -1]);
+				 			//console.log(canvas.getObjects());
+				 			//console.log(' myImage');
+							canvas.remove(myImage[1]);
 						}
 				});
 			});
