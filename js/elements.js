@@ -71,13 +71,10 @@
 					}
 					
 						
-						console.log('added');
+						
 										
 						canvas.add(userText[$(this).index()]);
 						
-						
-						console.log(userText[$(this).index()]);
-						console.log(userText[$(this).index()].width);
 						i++;
 						if(i==4){
 							i = 0;
@@ -126,8 +123,6 @@
 				//variable that says which elements is an active element
 				var activeElement = canvas.getActiveObject();
 				
-				console.log($(this).data('color'));
-
 				if(activeElement) {
 					
 					activeElement.setColor($(this).data('color'));
@@ -193,43 +188,141 @@
 			var toggle = 1;
 			var myImage = new Array();
 			//adding an image to the canvas
-			$(document).on( "click", "'#holder img'", function(){
+			$(document).on( "click", ".design-picture img", function(){
 				
 				
-				console.log(canvas.getObjects().length); 
 				//the image src which will generate the image
-				var selectedImage = $(this).children().attr('src');
-				console.log(selectedImage);
-				
-				
-
+				var selectedImage = $(this).attr('src');
 				
 				
 				fabric.Image.fromURL(selectedImage,
-											 function(oImg) {
+								function(oImg) {
 											 	
-											 	
-											 	if(toggle == 1 ){
+										if(canvas.getObjects().length < 2){	 
+											
+											switch(toggle) {
+												case 1:
 											 		myImage[toggle] = oImg;
-											 		console.log(myImage[toggle]);
 											 		toggle =2;
 											 		oImg.scaleToWidth(200);
-											 		console.log('me in toggle one');
-											 	}
-											 	else if(toggle ==2){
+											 		canvas.remove(myImage[2]);
+											 		canvas.add(oImg);
+											 		break;
+												case 2:
 											 		myImage[toggle] = oImg;
 											 		toggle =1;
 											 		oImg.scaleToWidth(200);
-											 		console.log('me in toggle two');
-											 	}
-											 	
-				 	canvas.add(oImg);
-				 	if(canvas.getObjects().length > 2){
-				 			//console.log(canvas.getObjects());
-				 			//console.log(' myImage');
-							canvas.remove(myImage[1]);
-						}
-				});
-			});
+											 		canvas.remove(myImage[1]);
+											 		canvas.add(oImg);
+											 		break;
+											 	default: 
+											 		console.log('I am in default now');
+											 		
+												}																													
+											} 
+											else {
+												alert('You can add only one LOGO at a time');
+											}	
+				 				
 
-		 });
+							});
+				});
+				
+				
+				//getting the values of the canvas for the site owner
+				$('.design-addtocart').click(function(){
+					//console.log(JSON.stringify(canvas));
+					console.log(canvas.toSVG());
+				});
+				
+
+	});
+	
+	
+	
+	
+	//functions which is for file upload
+	
+	 function fileSelected() {
+        var file = document.getElementById('fileToUpload').files[0];
+        if (file) {
+          var fileSize = 0;
+          if (file.size > 1024 * 1024)
+            fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+          else
+            fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+
+          document.getElementById('fileName').innerHTML = 'Name: ' + file.name;
+          document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
+          document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
+        }
+      }
+
+      function uploadFile() {
+        var fd = new FormData();
+        fd.append("fileToUpload", document.getElementById('fileToUpload').files[0]);
+        var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", uploadProgress, false);
+        xhr.addEventListener("load", uploadComplete, false);
+        xhr.addEventListener("error", uploadFailed, false);
+        xhr.addEventListener("abort", uploadCanceled, false);
+        xhr.open("POST", "upload.php");
+        xhr.send(fd);
+      }
+
+      function uploadProgress(evt) {
+        if (evt.lengthComputable) {
+          var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+          document.getElementById('progressNumber').innerHTML = percentComplete.toString() + '%';
+        }
+        else {
+          document.getElementById('progressNumber').innerHTML = 'unable to compute';
+        }
+      }
+
+      function uploadComplete(evt) {
+        /* This event is raised when the server send back a response */
+        //alert(evt.target.responseText);
+        
+        //position of the div where image will be added
+        var addImagePosition;
+        
+        for(i = 0; i<6; i++){
+        	console.log('I am inside the loop');
+        	console.log(i);
+        	if($('.design-picture img')[i] == undefined){
+        		
+        		console.log(i);
+        		addImagePosition = i;
+        		//console.log(addImagePosition);
+        		console.log($('.design-picture')[addImagePosition]);
+        		
+        		//div where we want to add the uploaded image
+        		var desiredDiv = $('.design-picture')[addImagePosition];
+        		
+        		desiredDiv.innerHTML = '<img src="'+evt.target.responseText+'" alt="logo" style="width: 60px;">';
+        		break;
+        	}
+        	else if(i==5){
+        		alert('you can upload maximum 6 images');
+        	}
+        	
+        }
+        
+      }
+
+      function uploadFailed(evt) {
+        alert("There was an error attempting to upload the file.");
+      }
+
+      function uploadCanceled(evt) {
+        alert("The upload has been canceled by the user or the browser dropped the connection.");
+      }
+
+		
+	//function to remove pic
+	function removePic(){
+		$('.design-picture')[5].innerHTML = '';
+	}
+	
+	
