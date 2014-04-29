@@ -10,7 +10,7 @@
 			var rect = new fabric.Rect({
 			  left: 100,
 			  top: 50,
-			  fill: color,
+			  fill: 'red',
 			  width: 350,
 			  height: 300
 			});
@@ -19,32 +19,14 @@
 			var userText = new fabric.Text('',{
 							left: 100,
 							top: 100,
-							fontSize: 40,
+							fontSize: 20,
 							fontFamily: 'Comic Sans'
 						});
 			
-			//second line of text
-			var	userText2 = new fabric.Text('',{
-											left: 150,
-											top: 150,
-											fontSize: 40,
-											fontFamily: 'Comic Sans'
-										});			
-			//third line of text
-			var	userText3 = new fabric.Text('',{
-											left: 200,
-											top: 200,
-											fontSize: 40,
-											fontFamily: 'Comic Sans'
-										});						
-
-
-
+			
+			
 			// "add" rectangle onto canvas
 			canvas.add(rect);
-			canvas.add(userText);
-			canvas.add(userText2);
-			canvas.add(userText3);
 			rect.set('selectable', false); 
 			
 			
@@ -52,54 +34,61 @@
 			var designButtonClick = 0;
 			// variable through userText will be accessed
 			var i = 0;
-			
 
-			$('.design-print-text1').change(function(){
+			
+			$('.design-print-text').change(function(){
 				
 				var designText = $(this).val().trim();
-				if(designText.length <= 12) {
-					userText.setText(designText);
-					canvas.renderAll();
-				}
-				else {
-					alert('Maximum no. of characters should be less than 12');
-				}
+				//maximum no. of lines a user can add
+				var userText = new Array();
+				
+				if(canvas.getObjects().length < 4){
+					if($(this).index() == 0){
+						userText[$(this).index()] = new fabric.Text(designText,{
+											left: 100,
+											top: 100,
+											fontSize: 40,
+											fontFamily: 'Comic Sans'
+										});
+					}
+					
+					if($(this).index() == 1){
+						userText[$(this).index()] = new fabric.Text(designText,{
+											left: 100,
+											top: 150,
+											fontSize: 40,
+											fontFamily: 'Comic Sans'
+										});
+					}
+					
+					if($(this).index() == 2){
+						userText[$(this).index()] = new fabric.Text(designText,{
+											left: 100,
+											top: 200,
+											fontSize: 40,
+											fontFamily: 'Comic Sans'
+										});
+					}
+					
+						
+						
 										
-
-
-			});
-			
-		
-			$('.design-print-text2').change(function(){
+						canvas.add(userText[$(this).index()]);
+						
+						i++;
+						if(i==4){
+							i = 0;
+						}
 				
-				
-				var designText = $(this).val().trim();
-				if(designText.length <= 12) {
-					userText2.setText(designText);
-					canvas.renderAll();
 				}
-				else {
-					alert('Maximum no. of characters should be less than 12');
-				}
-										
-				
-			});
-
-
-			$('.design-print-text3').change(function(){
-				
-				var designText = $(this).val().trim();
-				if(designText.length <= 12) {
-					userText3.setText(designText);
-					canvas.renderAll();
-				}
-				else {
-					alert('Maximum no. of characters should be less than 12');
+					
+					
+			else {
+					alert('You can add only three lines');
 				}
 				
 				
 			});
-			
 			
 			
 			

@@ -21,6 +21,13 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/fabric.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			//variables to instantiate the colored box 
+			var color = 'blue';
+		</script>
+		
+		
 		<script src="js/elements.js" type="text/javascript"></script>
 	</head>
 	
@@ -36,9 +43,9 @@
 					<ul class="nav nav-pills nav-stacked">
 					</ul>
 					<div class="design-text-elements">
-						<input type="text" class="design-print-text" placeholder="Please Enter First Line" />
-						<input type="text" class="design-print-text" placeholder="Please Enter Second Line" />
-						<input type="text" class="design-print-text" placeholder="Please Enter Third Line" />
+						<input type="text" class="design-print-text1 design-print-text" placeholder="Please Enter First Line" />
+						<input type="text" class="design-print-text2 design-print-text" placeholder="Please Enter Second Line" />
+						<input type="text" class="design-print-text3 design-print-text" placeholder="Please Enter Third Line" />
 						
 						<div class="design-color-palette-holder">
 							<h5>Text Color</h5>
@@ -100,7 +107,6 @@
 						<button type="button" class="btn design-addtocart">Add to Cart</button>
 						<button type="button" class="btn design-addposition">Add to Different Postion</button>
 						<button type="button" class="btn total-price">Total Price</button>
-						<button type="button" class="btn remove-text">Remove Text</button>
 					</div>
 				</div>
 			</div>
