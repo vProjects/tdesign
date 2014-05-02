@@ -8,11 +8,11 @@
 			
 			// create a rectangle object
 			var rect = new fabric.Rect({
-			  left: 100,
-			  top: 50,
+			  left: 0,
+			  top: 0,
 			  fill: color,
 			  width: 350,
-			  height: 300
+			  height: 350
 			});
 			
 			//here we initialize the text to stay on the page and we add that to the canavas
